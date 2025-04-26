@@ -10,15 +10,27 @@
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      background: #000;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-family: 'Orbitron', sans-serif;
       color: #fff;
-      overflow: hidden;
       animation: fadeIn 2s ease;
+    }
+
+    .stars {
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/demos/assets/stars.png') repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      animation: moveStars 100s linear infinite;
+      opacity: 0.5;
     }
 
     h1 {
@@ -26,17 +38,20 @@
       margin: 0.2em 0;
       text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
       animation: slideDown 1.5s ease;
+      z-index: 1;
     }
 
     p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
       opacity: 0.8;
+      z-index: 1;
     }
 
     .links {
       display: flex;
       gap: 20px;
+      z-index: 1;
     }
 
     a {
@@ -65,9 +80,16 @@
       from { transform: translateY(-50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
   </style>
 </head>
 <body>
+
+  <div class="stars"></div>
 
   <h1>DoN GonDoN</h1>
   <p>Возраст: 17 лет</p>
